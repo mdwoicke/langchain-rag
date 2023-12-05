@@ -40,19 +40,30 @@ body, html {
     <span class="w3-jumbo w3-hide-small">Map Search Test</span><br>
     <br/>
   
-    <script type="text/javascript">
-  (function(d, t) {
-      var v = d.createElement(t), s = d.getElementsByTagName(t)[0];
-      v.onload = function() {
-        window.voiceflow.chat.load({
-          verify: { projectID: '656a6fb931b5ff8d6a80b599' },
-          url: 'https://general-runtime.voiceflow.com',
-          versionID: 'production',
-          allowDangerousHTML: true
-        });
-      }
-      v.src = "https://cdn.voiceflow.com/widget/bundle.mjs"; v.type = "text/javascript"; s.parentNode.insertBefore(v, s);
-  })(document, 'script');
+ 
+<div style="width: 0; height: 0;" id="VG_OVERLAY_CONTAINER">
+    <!-- Here is where Voiceglow renders the widget. -->
+    <!-- Set render to 'full-width' then adjust the width and height to 500px (for example) to render the chatbot itself without the popup. -->
+</div>
+
+<!-- Remove 'defer' if you want widget to load faster (Will affect website loading) -->
+<script defer>
+(() => {
+    document.querySelector('html').style.fontSize = "16px"; // 16px is the default value, this is needed now for fully eliminating spacing issues.
+    window.VG_CONFIG = {
+        ID: "joho3gnvv",
+        region: 'na', // 'eu' or 'na'corresponding to Europe and North America
+        render: 'popup', // popup or full-width
+        stylesheets: [
+            // Base Voiceglow CSS
+            "https://storage.googleapis.com/speakwiz-app.appspot.com/vg_live_build/styles.css",
+            // Add your custom css stylesheets, Can also add relative URL ('/public/your-file.css)
+        ],
+    }
+    var VG_SCRIPT = document.createElement("script");
+    VG_SCRIPT.src = "https://storage.googleapis.com/speakwiz-app.appspot.com/vg_live_build/vg_bundle.js";
+    document.body.appendChild(VG_SCRIPT);
+})()
 </script>
 </body>
 </html>
